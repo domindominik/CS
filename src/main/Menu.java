@@ -26,11 +26,12 @@ public class Menu
             my.printInfo();
             System.out.println("Chose your weapon: 1. Gun, 2. Shot gun, 3. Machine gun");
             int index = scanner.nextInt();
-            gameEngine.setWeapon(index);
+            gameEngine.setWeapon(index - 1);
             my.printInfo();
             System.out.println(gameEngine.distance());
+            gameEngine.shot(gameEngine.distance());
         }
-        System.out.println("END");
+        System.out.println("You win!");
     }
     public static void main(String[] args)
     {

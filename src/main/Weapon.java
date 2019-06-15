@@ -35,6 +35,26 @@ public class Weapon
         return damage;
     }
 
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setShotsQuantity(int shotsQuantity)
+    {
+        this.shotsQuantity = shotsQuantity;
+    }
+
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
+    }
+
     public void printInfo()
     {
         System.out.println("Name: " + name +
