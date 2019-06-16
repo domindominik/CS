@@ -50,7 +50,14 @@ public class GameEngine
                 opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
                 player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
             }
+            if (opponent.getPointsLife() < 1)
+            {
+                break;
+            }
         }
+        player.setRound(player.getRound() + 1);
+
+        System.out.println("Opponent points: " + opponent.getPointsLife());
     }
 
     /*public void shot(int distance)
