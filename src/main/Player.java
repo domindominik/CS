@@ -1,17 +1,17 @@
 package main;
 
-public class My
+public class Player
 {
     private String name;
     private int round;
     private int money;
     private Weapon weapon;
 
-    public My(String name, Weapon weapon)
+    public Player(String name, Weapon weapon)
     {
         this.name = name;
         this.round = 1;
-        this.money = 0;
+        this.money = 3000;
         this.weapon = weapon;
     }
 

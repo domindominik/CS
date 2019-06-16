@@ -1,10 +1,10 @@
 package main;
 
-public class Oponent
+public class Opponent
 {
     private int pointsLife;
 
-    public Oponent()
+    public Opponent()
     {
         this.pointsLife = 100;
     }

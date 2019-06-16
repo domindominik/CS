@@ -6,27 +6,27 @@ import java.util.Random;
 public class GameEngine
 {
     private List<Weapon> weaponList;
-    private My my;
-    private Oponent oponent;
+    private Player player;
+    private Opponent opponent;
     private int[] distance = new int[]{5, 10, 15};
 
-    public GameEngine(List<Weapon> weaponList, My my, Oponent oponent)
+    public GameEngine(List<Weapon> weaponList, Player player, Opponent opponent)
     {
         this.weaponList = weaponList;
-        this.my = my;
-        this.oponent = oponent;
+        this.player = player;
+        this.opponent = opponent;
     }
 
     public void setWeapon(int index)
     {
-        if (weaponList.get(index).getPrice() <= my.getMoney())
+        if (weaponList.get(index).getPrice() <= player.getMoney())
         {
-            my.setWeapon(weaponList.get(index));
-            my.setMoney(my.getMoney() - weaponList.get(index).getPrice());
+            player.setWeapon(weaponList.get(index));
+            player.setMoney(player.getMoney() - weaponList.get(index).getPrice());
         }
         else
         {
-            my.setWeapon(weaponList.get(0));
+            player.setWeapon(weaponList.get(0));
         }
     }
 
@@ -38,25 +38,42 @@ public class GameEngine
 
     public void shot(int distance)
     {
-        while ((my.getWeapon().getShotsQuantity() > 0))
+        opponent.setPointsLife(100);
+
+        for (int i = 0; i < player.getWeapon().getShotsQuantity(); i++)
         {
-            oponent.setPointsLife(100);
             Random random = new Random();
             int hit = random.nextInt((2));
             System.out.println(hit);
             if (hit == 1)
             {
-                oponent.setPointsLife(oponent.getPointsLife() - my.getWeapon().getDamage());
-                my.setMoney(my.getMoney() + my.getWeapon().getDamage() * 10);
-                my.getWeapon().setShotsQuantity(my.getWeapon().getShotsQuantity() - 1);
+                opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
+            }
+        }
+    }
+
+    /*public void shot(int distance)
+    {
+        while (player.getWeapon().getShotsQuantity() > 0)
+        {
+            opponent.setPointsLife(100);
+            Random random = new Random();
+            int hit = random.nextInt((2));
+            System.out.println(hit);
+            if (hit == 1)
+            {
+                opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
+                player.getWeapon().setShotsQuantity(player.getWeapon().getShotsQuantity() - 1);
             }
             else
             {
-                my.getWeapon().setShotsQuantity(my.getWeapon().getShotsQuantity() - 1);
+                player.getWeapon().setShotsQuantity(player.getWeapon().getShotsQuantity() - 1);
             }
         }
-        my.setRound(my.getRound() + 1);
-    }
+        player.setRound(player.getRound() + 1);
+    }*/
 
 
 }
