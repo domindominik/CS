@@ -49,20 +49,20 @@ public class GameEngine
                 case 5:
                     if (hit == 1)
                     {
-                        if (player.getWeapon().getName() == "Gun")
+                        if (player.getWeapon().getName().equals("Gun"))
                         {
                             opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
                             player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
                         }
                         if (player.getWeapon().getName() == "Shot Gun")
                         {
-                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 15);
+                            opponent.setPointsLife((opponent.getPointsLife() - player.getWeapon().getDamage()) * 1.5);
+                            player.setMoney((player.getMoney() + player.getWeapon().getDamage() * 10) * 1.5);
                         }
                         if (player.getWeapon().getName() == "Machine Gun")
                         {
                             opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 5);
+                            player.setMoney((player.getMoney() + player.getWeapon().getDamage() * 10) * 0.5);
                         }
                     }
                     break;
