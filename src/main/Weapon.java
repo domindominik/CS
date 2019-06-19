@@ -4,8 +4,9 @@ public class Weapon
 {
     private String name;
     private int shotsQuantity;
-    private int price;
-    private int damage;
+    private double price;
+    private double damage;
+    private double bonus;
 
     public Weapon(String name, int shotsQuantity, int price, int damage)
     {
@@ -13,6 +14,12 @@ public class Weapon
         this.shotsQuantity = shotsQuantity;
         this.price = price;
         this.damage = damage;
+        this.bonus = 0.5;
+    }
+
+    public double getBonus()
+    {
+        return bonus;
     }
 
     public String getName()
@@ -25,12 +32,12 @@ public class Weapon
         return shotsQuantity;
     }
 
-    public int getPrice()
+    public double getPrice()
     {
         return price;
     }
 
-    public int getDamage()
+    public double getDamage()
     {
         return damage;
     }

@@ -22,7 +22,7 @@ public class GameEngine
         if (weaponList.get(index).getPrice() <= player.getMoney())
         {
             player.setWeapon(weaponList.get(index));
-            player.setMoney(player.getMoney() - weaponList.get(index).getPrice());
+            player.setMoney((int) (player.getMoney() - weaponList.get(index).getPrice()));
         }
         else
         {
@@ -38,22 +38,76 @@ public class GameEngine
 
     public void shot(int distance)
     {
-        opponent.setPointsLife(100);
-
         for (int i = 0; i < player.getWeapon().getShotsQuantity(); i++)
         {
             Random random = new Random();
             int hit = random.nextInt((2));
             System.out.println(hit);
-            if (hit == 1)
+
+            switch (distance)
             {
-                opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
+                case 5:
+                    if (hit == 1)
+                    {
+                        if (player.getWeapon().getName() == "Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
+                        }
+                        if (player.getWeapon().getName() == "Shot Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 15);
+                        }
+                        if (player.getWeapon().getName() == "Machine Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 5);
+                        }
+                    }
+                    break;
+                case 10:
+                    if (hit == 1)
+                    {
+                        if (player.getWeapon().getName() == "Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
+                        }
+                        if (player.getWeapon().getName() == "Shot Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
+                        }
+                        if (player.getWeapon().getName() == "Machine Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
+                        }
+                    }
+                    break;
+                case 15:
+                    if (hit == 1)
+                    {
+                        if (player.getWeapon().getName() == "Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
+                        }
+                        if (player.getWeapon().getName() == "Shot Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 5);
+                        }
+                        if (player.getWeapon().getName() == "Machine Gun")
+                        {
+                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
+                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 15);
+                        }
+                    }
+                    break;
             }
-            if (opponent.getPointsLife() < 1)
-            {
-                break;
-            }
+
         }
         player.setRound(player.getRound() + 1);
 

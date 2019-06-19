@@ -4,7 +4,7 @@ public class Player
 {
     private String name;
     private int round;
-    private int money;
+    private double money;
     private Weapon weapon;
 
     public Player(String name, Weapon weapon)
@@ -25,7 +25,7 @@ public class Player
         return round;
     }
 
-    public int getMoney()
+    public double getMoney()
     {
         return money;
     }
@@ -45,7 +45,7 @@ public class Player
         this.round = round;
     }
 
-    public void setMoney(int money)
+    public void setMoney(double money)
     {
         this.money = money;
     }
