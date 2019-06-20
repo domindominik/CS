@@ -24,7 +24,8 @@ public class Menu
         while (opponent.getPointsLife() > 0)
         {
             player.printInfo();
-            System.out.println("Distance:" + gameEngine.distance());
+            int distance = gameEngine.distance();
+            System.out.println("Distance: " + distance);
 
             System.out.println("Chose your weapon: 1. Gun[7], 2. Shot gun[2], 3. Machine gun[15]");
             int index = scanner.nextInt();
@@ -33,7 +34,7 @@ public class Menu
             player.printInfo();
 
             opponent.setPointsLife(100);
-            gameEngine.shot(gameEngine.distance());
+            gameEngine.shot(distance);
         }
         System.out.println(player.getName() + " You win!");
     }

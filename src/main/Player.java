@@ -11,7 +11,7 @@ public class Player
     {
         this.name = name;
         this.round = 1;
-        this.money = 3000;
+        this.money = money;
         this.weapon = weapon;
     }
 
