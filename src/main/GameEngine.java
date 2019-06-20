@@ -113,30 +113,4 @@ public class GameEngine
 
         System.out.println("Opponent points: " + opponent.getPointsLife());
     }
-
-
-
-    /*public void shot(int distance)
-    {
-        while (player.getWeapon().getShotsQuantity() > 0)
-        {
-            opponent.setPointsLife(100);
-            Random random = new Random();
-            int hit = random.nextInt((2));
-            System.out.println(hit);
-            if (hit == 1)
-            {
-                opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
-                player.getWeapon().setShotsQuantity(player.getWeapon().getShotsQuantity() - 1);
-            }
-            else
-            {
-                player.getWeapon().setShotsQuantity(player.getWeapon().getShotsQuantity() - 1);
-            }
-        }
-        player.setRound(player.getRound() + 1);
-    }*/
-
-
 }

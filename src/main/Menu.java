@@ -27,7 +27,7 @@ public class Menu
             int distance = gameEngine.distance();
             System.out.println("Distance: " + distance);
 
-            System.out.println("Chose your weapon: 1. Gun[7], 2. Shot gun[2], 3. Machine gun[15]");
+            System.out.println("Chose your weapon: 1. Gun[7]- 0$, 2. Shot gun[2]- 1000$, 3. Machine gun[15]- 3000$");
             int index = scanner.nextInt();
             gameEngine.setWeapon(index - 1);
 
