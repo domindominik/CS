@@ -8,7 +8,6 @@ public class GameEngine
     private List<Weapon> weaponList;
     private Player player;
     private Opponent opponent;
-    private int[] distance = new int[]{5, 10, 15};
 
     public GameEngine(List<Weapon> weaponList, Player player, Opponent opponent)
     {
@@ -32,82 +31,18 @@ public class GameEngine
 
     public int distance()
     {
-        Random random = new Random();
-        return distance[random.nextInt((3))];
+        return (int)(Math.random()*2);
     }
 
     public void shot(int distance)
     {
         for (int i = 0; i < player.getWeapon().getShotsQuantity(); i++)
         {
-            Random random = new Random();
-            int hit = random.nextInt((2));
-            System.out.println(hit);
-
-            switch (distance)
-            {
-                case 5:
-                    if (hit == 1)
-                    {
-                        if (player.getWeapon().getName().equals("Gun"))
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
-                        }
-                        if (player.getWeapon().getName() == "Shot Gun")
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - (player.getWeapon().getDamage() * 1.5));
-                            player.setMoney(player.getMoney() + (player.getWeapon().getDamage() * 15));
-                        }
-                        if (player.getWeapon().getName() == "Machine Gun")
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - (player.getWeapon().getDamage() * 0.5));
-                            player.setMoney(player.getMoney() + (player.getWeapon().getDamage() * 0.5));
-                        }
-                    }
-                    break;
-                case 10:
-                    if (hit == 1)
-                    {
-                        if (player.getWeapon().getName() == "Gun")
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
-                        }
-                        if (player.getWeapon().getName() == "Shot Gun")
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
-                        }
-                        if (player.getWeapon().getName() == "Machine Gun")
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
-                        }
-                    }
-                    break;
-                case 15:
-                    if (hit == 1)
-                    {
-                        if (player.getWeapon().getName() == "Gun")
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - player.getWeapon().getDamage());
-                            player.setMoney(player.getMoney() + player.getWeapon().getDamage() * 10);
-                        }
-                        if (player.getWeapon().getName() == "Shot Gun")
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - (player.getWeapon().getDamage() * 0.5));
-                            player.setMoney(player.getMoney() + (player.getWeapon().getDamage() * 0.5));
-                        }
-                        if (player.getWeapon().getName() == "Machine Gun")
-                        {
-                            opponent.setPointsLife(opponent.getPointsLife() - (player.getWeapon().getDamage() * 1.5));
-                            player.setMoney(player.getMoney() + (player.getWeapon().getDamage() * 15));
-                        }
-                    }
-                    break;
-            }
-
+            if((int)(Math.random() * 2) < 1) continue;
+            double damage = player.getWeapon().getDamage();
+            int code =  player.getWeapon().getCode();
+            opponent.updateLifePoints(damage,distance,code);
+            player.updateMoney(damage);
         }
         player.setRound(player.getRound() + 1);
 

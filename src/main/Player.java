@@ -54,6 +54,10 @@ public class Player
     {
         this.weapon = weapon;
     }
+    public void updateMoney(double damage)
+    {
+        money += (int)(10 * damage);
+    }
 
     public void printInfo()
     {

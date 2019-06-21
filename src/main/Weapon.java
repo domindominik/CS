@@ -2,11 +2,17 @@ package main;
 
 public class Weapon
 {
+    public static final int GUN = 0;
+    public static final int SHOT_GUN = 1;
+    public static final int MACHINE_GUN = 2;
+    public static final String[] NAMES = new String[] {"Gun", "Shot Gun", "Machine Gun"};
+
     private String name;
     private int shotsQuantity;
     private double price;
     private double damage;
     private double bonus;
+    private int code;
 
     public Weapon(String name, int shotsQuantity, int price, int damage)
     {
@@ -24,7 +30,12 @@ public class Weapon
 
     public String getName()
     {
-        return name;
+        return NAMES[code];
+    }
+
+    public int getCode()
+    {
+        return code;
     }
 
     public int getShotsQuantity()
