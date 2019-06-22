@@ -25,7 +25,7 @@ public class Opponent
         this.pointsLife = pointsLife;
     }
 
-    public void updateLifePoints(double damage,int distance,int code)
+    public void updateLifePoints(double damage, int distance, int code)
     {
         pointsLife -= damage * DAMAGE_BONUS[distance][code];
     }
