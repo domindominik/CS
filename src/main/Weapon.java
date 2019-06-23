@@ -6,7 +6,6 @@ public class Weapon
     private int shotsQuantity;
     private double price;
     private double damage;
-    private double bonus;
     private int code;
 
     public Weapon(int code, int shotsQuantity, int price, int damage)

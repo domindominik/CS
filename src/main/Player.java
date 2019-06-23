@@ -56,7 +56,7 @@ public class Player
     }
     public void updateMoney(double damage)
     {
-        money += (int)(10 * damage);
+        money += (double) (10 * damage);
     }
 
     public void printInfo()

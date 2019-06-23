@@ -4,9 +4,9 @@ public class Opponent
 {
     public static final double[][] DAMAGE_BONUS = new double[][]
     {
-            {0,0,0},
-            {1.5,0,0.5},
-            {0.5,0,1.5}
+            {1,1,1},
+            {1.5,1,0.5},
+            {0.5,1,1.5}
     };
     private double pointsLife;
 
@@ -27,6 +27,6 @@ public class Opponent
 
     public void updateLifePoints(double damage, int distance, int code)
     {
-        pointsLife -= damage * DAMAGE_BONUS[distance][code];
+        pointsLife -= damage * DAMAGE_BONUS[code][distance];
     }
 }
